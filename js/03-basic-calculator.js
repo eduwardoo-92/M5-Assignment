@@ -19,11 +19,36 @@ To complete this part of the assignment follow the steps outlined here:
 */
 
 // ADD A FUNCTION CALLED CALCULATE
+function calculate(x, y, operation) {
+    switch(operation){
+        case 'add':
+            return x + y
+        case 'substract':
+            return x - y
+        case 'multiply':
+            return x * y
+        case 'divide':
+            return x / y
+        default:
+            return 'Invalid operation'
+    }
+}
 
+function workingCalculator() {
 // COLLECT FIRST NUMBER FROM USER
-
+    let number1 = parseFloat(prompt("Enter the first number: "))
 // COLLECT SECOND NUMBER FROM USER
-
+    let number2 = parseFloat(prompt("Enter the second number: "))
 // COLLECT OPERATION TO PERFORM (+,-,*,/) FROM USER
-
+    let operation = prompt("Enter the operation (add, substract, multiply, divide):")
 // CALL THE FUNCTION AND RETURN THE RESULT WITHIN AN ALERT
+    let result = calculate(number1, number2, operation)
+    if (result === "Invalid operation. "){
+        alert("Invalid Operation")
+        workingCalculator()
+    } else {
+        alert("The result is: " + result )
+    }
+}
+
+workingCalculator()
