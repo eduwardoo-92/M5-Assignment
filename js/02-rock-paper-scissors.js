@@ -21,3 +21,34 @@ You will be responsible for figuring out some of the logic. These next steps wil
     (5)What if the result ends in a tie? Figure out how to handle that as well.
     (6) What if the user enters something other than rock, paper, or scissors into the prompt? Figure out how to handle that as well.
 */
+
+function rockPaperScissors() { 
+    let playerChoice = prompt("Choose rock, paper, or scissors! ").toLowerCase()
+
+    const choices = ["rock", "paper", "scissors"]
+    let compChoice = choices[Math.floor(Math.random() * 3)]
+
+    let result = ""
+
+    if (playerChoice === compChoice) {
+        result = "It's a tie!"
+    } else if (
+        (playerChoice === "rock" && compChoice === "scissors") ||
+        (playerChoice === "scissors" && compChoice === "paper") ||
+        (playerChoice === "paper" && compChoice === "rock")
+    ) {
+        result = "You win!"
+    } else if (
+        (playerChoice === "rock" && compChoice === "paper") ||
+        (playerChoice === "scissors" && compChoice === "rock") ||
+        (playerChoice === "paper" && compChoice === "scissors")
+    ) {
+        result = "Computer wins!"
+    } else {
+        result = "Invalid input. Please choose rock, paper, or scissors only."
+    }
+
+    console.log(`You chose: ${playerChoice}\nComputer chose: ${compChoice}\n${result}`)
+}
+
+rockPaperScissors();
